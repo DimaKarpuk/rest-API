@@ -6,7 +6,7 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.*;
 
-public class ListUsers extends TestBase {
+public class UserApiTests extends TestBase {
     @DisplayName("Успешная регистрация пользователя")
     @Test
     void successfulCreateUserTest(){
