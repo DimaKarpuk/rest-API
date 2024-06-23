@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class PutUpdateResponseModel {
-    String name;
-    String job;
-    String updatedAt;
+    private String name;
+    private String job;
+    private String updatedAt;
 
 }

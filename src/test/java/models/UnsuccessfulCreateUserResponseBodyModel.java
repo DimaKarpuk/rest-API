@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class UnsuccessfulCreateUserResponseBodyModel {
-    String error;
+    private String error;
 }

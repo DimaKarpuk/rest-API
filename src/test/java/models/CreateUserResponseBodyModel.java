@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class CreateUserResponseBodyModel {
-    String token;
-    int id;
+    private String token;
+    private int id;
 }
