@@ -13,11 +13,12 @@ public class CreateSpec {
     public static RequestSpecification requestSpecification = with()
             .filter(withCustomTemplates())
             .contentType(JSON)
-            .log().uri()
             .log().all();
     public static ResponseSpecification responseSpecification = new ResponseSpecBuilder()
-            .log(STATUS)
-            .log(BODY)
             .log(ALL)
+            .build();
+    public static ResponseSpecification responseSpecificationWithStatusCode200 = new ResponseSpecBuilder()
+            .log(ALL)
+            .expectStatusCode(200)
             .build();
 }

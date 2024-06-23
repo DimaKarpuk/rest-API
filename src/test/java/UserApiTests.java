@@ -11,7 +11,7 @@ import static specs.CreateSpec.*;
 
 
 public class UserApiTests extends TestBase {
-    @DisplayName("Успешная регистрация пользователя")
+    @DisplayName("Successful user registration")
     @Test
     void successfulCreateUserTest() {
         CreateUserRequestModel authData = new CreateUserRequestModel();
@@ -24,8 +24,7 @@ public class UserApiTests extends TestBase {
                     .when()
                     .post("register")
                     .then()
-                    .spec(responseSpecification)
-                    .statusCode(200)
+                    .spec(responseSpecificationWithStatusCode200)
                     .extract().as(CreateUserResponseBodyModel.class);
         });
         step("Check response", () -> {
@@ -34,7 +33,7 @@ public class UserApiTests extends TestBase {
         });
     }
 
-    @DisplayName("Не успешная регистрация пользователя")
+    @DisplayName("Not successful user registration")
     @Test
     void unsuccessfulCreateUserTest() {
         CreateUserRequestModel authData = new CreateUserRequestModel();
@@ -57,7 +56,7 @@ public class UserApiTests extends TestBase {
         });
     }
 
-    @DisplayName("Пойск пользователя")
+    @DisplayName("Successful search user")
     @Test
     void searchUserTest() {
         SearchUserModel response = step("Make successful search user request", () -> {
@@ -65,8 +64,7 @@ public class UserApiTests extends TestBase {
                     .when()
                     .get("users/2")
                     .then()
-                    .spec(responseSpecification)
-                    .statusCode(200)
+                    .spec(responseSpecificationWithStatusCode200)
                     .extract().as(SearchUserModel.class);
         });
         step("Check response", () -> {
@@ -77,7 +75,7 @@ public class UserApiTests extends TestBase {
         });
     }
 
-    @DisplayName("Изменения пользователя")
+    @DisplayName("Successful update user")
     @Test
     void putUpdateUserTest() {
         PutUpdateUserRequestModel authData = new PutUpdateUserRequestModel();
@@ -90,8 +88,7 @@ public class UserApiTests extends TestBase {
                     .when()
                     .put("users/2")
                     .then()
-                    .spec(responseSpecification)
-                    .statusCode(200)
+                    .spec(responseSpecificationWithStatusCode200)
                     .extract().as(PutUpdateResponseModel.class);
         });
         step("Check response", () -> {
@@ -101,7 +98,7 @@ public class UserApiTests extends TestBase {
         });
     }
 
-    @DisplayName("Изменения имени пользователя")
+    @DisplayName("Successful update name user")
     @Test
     void pathUpdateUserTest() {
         PathUpdateRequestModel authData = new PathUpdateRequestModel();
@@ -113,8 +110,7 @@ public class UserApiTests extends TestBase {
                     .when()
                     .patch("users/2")
                     .then()
-                    .spec(responseSpecification)
-                    .statusCode(200)
+                    .spec(responseSpecificationWithStatusCode200)
                     .extract().as(PutUpdateResponseModel.class);
         });
         step("Check response", () -> {
@@ -123,7 +119,7 @@ public class UserApiTests extends TestBase {
         });
     }
 
-    @DisplayName("Удаление пользователя")
+    @DisplayName("Successful delete user")
     @Test
     void deleteUserTest() {
         step("Delete user", () -> {
